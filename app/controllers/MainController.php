@@ -9,7 +9,7 @@ class MainController extends Controller
 
     public function homepage()
     {
-                include '../public/assets/views/main/homepage.php';
+                include '../public/assets/views/main/test.php';
 //        $this->view('../public/assets/views/main/example-homepage.php', true);
     }
 
