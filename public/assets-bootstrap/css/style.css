@@ -714,7 +714,7 @@ textarea::-ms-input-placeholder{
     font-weight: 400;
     font-size:2.250rem;
     color:#16293b;
-    border-left:3px solid #fddc57;
+    border-left:3px solid #57f5fd;
     padding-left:15px;
 }
 .head_title h2 strong{
@@ -880,7 +880,7 @@ Nav Menu style
     padding: 30px 15px;
 }
 nav.navbar.bootsnav ul.nav li.active > a{
-    color:#fddc57;
+    color:#57fdd9;
 }
 nav.navbar.bootsnav.no-background.white ul.nav > li > a {
     color: #fff;
@@ -1163,7 +1163,7 @@ tems Section style
     font-size:16px;
 }
 .teams_item ul li a:hover i{
-    color:#fddc57;
+    color:#57fdf2;
 }
 /*team Skill bar*/
 .teamskillbar {
@@ -1261,13 +1261,13 @@ tems Section style
 }
 
 .main-portfolio .button:hover {
-    background-color: #ffea97;
+    background-color: #97fffd;
     color: #222;
 }
 
 .main-portfolio .button:active,
 .main-portfolio .button.is-checked {
-    background-color: #fddc57;
+    background-color: #57fafd;
 }
 
 .main-portfolio .button.is-checked {
@@ -1491,8 +1491,8 @@ tems Section style
     font-size: 12px;
 }
 .widget_newsletter .btn:hover{
-    background-color: #fddc57;
-    border-color:#fddc57;
+    background-color: #57fdec;
+    border-color:#57fdf7;
     color:#333;
 }
 .widget_brand a{

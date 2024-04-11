@@ -34,7 +34,7 @@
                     <div class="hello">
                         <div class="slid_item">
                             <div class="home_text">
-                                <h1 class="text-yellow">Welcome to the Sacred Texts Hub</h1>
+                                <h1 class="text-yellow">Welcome to the Sacred Texts Hub!</h1>
                                 <h3 class="text-white text-uppercase">Explore the wisdom and teachings of sacred texts from different religious traditions.</h3>
                             </div>
                         </div><!-- End off slid item -->
