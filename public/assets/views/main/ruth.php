@@ -119,15 +119,27 @@
     </div>
     <div>
     <h2>Comments & Interpretations</h2>
-    <div id="comments"></div>
+    <div id="comment"></div>
 
     <h4>Add a Comment or Your Interpretation!</h4>
-    <form id="commentForm" action="submit_comments.php" method="post">
-        <textarea id="comment" rows="4" cols="50"></textarea>
-        <br>
+    <form method="post" action="submit_comments.php">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required></textarea>
+    </div>
         <button type="submit">Submit</button>
     </form>
-</div>
+
+    </div>
+
+
+
+
+
 
 
     <!-- Footer-->
@@ -151,38 +163,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="../../assets-bootstrap/js-bootstrap/scripts.js"></script>
-
     <?php
 
-require_once '../app/core/Database.php'; // Assuming Database.php is in the correct path
+        use app\core\Database;
 
-use app\core\Database;
+        class RuthComments 
+        {
+            use Database;
 
-class RuthComments 
-{
-    use Database;
+            public function fetchComments()
+            {
+                $sql = "SELECT * FROM ruth1_comments";
+                return $this->fetchAll($sql);
+            }
+        }
 
-    public function fetchComments()
-    {
-        $sql = "SELECT * FROM ruth1_comments";
-        return $this->fetchAll($sql);
-    }
-}
+        $ruthComments = new RuthComments();
+        $comments = $ruthComments->fetchComments();
 
-$ruthComments = new RuthComments();
-$comments = $ruthComments->fetchComments();
-
-if ($comments) {
-    foreach ($comments as $comment) {
-        echo "<p>" . $comment["description"] . "</p>";
-    }
-} else {
-    echo "No comments yet.";
-}
-?>
-
+        if ($comments) {
+            foreach ($comments as $comment) {
+                echo "<h5>" . $comment["title"] . "</h5>";
+                echo "<p>" . $comment["description"] . "</p>";
+            }
+        } else {
+            echo "No comments yet.";
+        }
+    ?>
 
 </body>
 </html>
-
 

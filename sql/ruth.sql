@@ -26,4 +26,8 @@ CREATE TABLE `ruth4_comments` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO ruth1_comments (title, description) VALUES ('Loyalty', 'This is a story of friendship, love, and loyalty');
+
+
+
 

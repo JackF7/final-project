@@ -16,7 +16,7 @@ class Comment
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("SELECT * FROM ruth_comments");
+        $statement = $connection->prepare("SELECT * FROM ruth1_comments");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -25,7 +25,7 @@ class Comment
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("INSERT INTO ruth_comments (title, description) VALUES (:title, :description)");
+        $statement = $connection->prepare("INSERT INTO ruth1_comments (title, description) VALUES (:title, :description)");
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
         return $statement->execute();
@@ -35,7 +35,7 @@ class Comment
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("UPDATE ruth_comments SET title = :title, description = :description WHERE id = :id");
+        $statement = $connection->prepare("UPDATE ruth1_comments SET title = :title, description = :description WHERE id = :id");
         $statement->bindParam(':id', $id);
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
@@ -46,7 +46,7 @@ class Comment
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("SELECT * FROM ruth_comments WHERE id = :id");
+        $statement = $connection->prepare("SELECT * FROM ruth1_comments WHERE id = :id");
         $statement->bindParam(':id', $id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
@@ -56,7 +56,7 @@ class Comment
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("DELETE FROM ruth_comments WHERE id = :id");
+        $statement = $connection->prepare("DELETE FROM ruth1_comments WHERE id = :id");
         $statement->bindParam(':id', $id);
         return $statement->execute();
     }

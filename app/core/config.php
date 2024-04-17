@@ -1,5 +1,5 @@
 <?php 
-
+$env = parse_ini_file('../.env');
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
     /** database config **/

@@ -1,29 +1,30 @@
 <?php
+
 require_once '../app/core/config.php';
+require_once '../app/models/Comments.php'; 
+use app\models\Comment;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    if (isset($_POST['title']) && isset($_POST['description'])) {
 
-    $comment = $_POST['comment'];
+        $commentModel = new Comment();
 
-    $sql = "INSERT INTO ruth_comments (description) VALUES (?)";
-    $statement = $conn->prepare($sql);
-    $statement->bind_param("s", $comment);
+        $title = htmlspecialchars($_POST['title'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $description = htmlspecialchars($_POST['description'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
-    if ($statement->execute()) {
-        header("Location: ruth.php"); // Redirect back to ruth.php after submission
-        exit();
+        $saveResult = $commentModel->saveAComment($title, $description);
+
+        if ($saveResult) {
+     
+            header("Location: ruth");
+            exit();
+        } else {
+            echo "Error: Failed to save the comment.";
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: Both title and description are required.";
     }
-
-    $statement->close();
-    $conn->close();
 } else {
     echo "Invalid request method";
 }
-?>
