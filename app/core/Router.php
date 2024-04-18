@@ -45,6 +45,10 @@ class Router
             case "/the-book-of-ruth":
                 $mainController->ruth();
                 break;
+            
+            case "/ruth1":
+                $mainController->ruth();
+                break;
 
             case "/ruth":
                 $mainController->alsoRuth();

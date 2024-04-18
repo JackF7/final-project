@@ -38,6 +38,11 @@ class MainController extends Controller
         include '../public/assets/views/main/ruth.php';
     }
 
+    public function ruth1()
+    {
+        include '../public/assets/views/main/ruth.php';
+    }
+
     public function alsoRuth()
     {
         include '../public/assets/views/main/ruth.php';

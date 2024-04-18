@@ -42,7 +42,7 @@
                             <li><a class="dropdown-item" href="sufism-poetry">Sufism Poetry</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link active" href="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about">Sources</a></li>
                 </ul>
             </div>
         </div>
@@ -50,34 +50,27 @@
 
 
     <!-- Content section-->
-    <section class="py-5">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2>About the Hub</h2>
-                    <p class="lead">The Sacred Texts Hub is a platform dedicated to providing access to sacred texts from around the world.</p>
-                    <p class="mb-0">Explore texts from different religions and spiritual traditions, delve into their teachings, and gain insights into the diverse ways people understand and practice spirituality.</p>
+    <section>
+        <div>
+            <div>
+                <div>
+                    <h1 class="text-center">Sources</h1>
+                    <h6 class="text-center">I created this website using many online resources, and it would not have been possible without them.</h6>
+                    <h6 class="text-center">You can find them below.</h6>
+                    <ul>
+                        <li><b>Design:</b> Bootstrap</li>
+                        <li><b>Bible/Tanakh API:</b> Biblia.com</li>
+                        <li><b>Online Qur'an:</b> Quranonline.net</li>
+                        <li><b>Images:</b> Unsplash.com</li>
+                        <li><b>Sufism Poems:</b> Safi, Omid. 2018. Radical Love : Teachings From the Islamic Mystical Tradition. New Haven: Yale University Press.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Image element - set the background image for the header in the line below-->
-    <div class="py-5 bg-image-full" style="background-image: url('https://i.imgur.com/z8AOg1U.jpeg')">
-        <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+    <div class="py-5 bg-image-full" style="background-image: url('https://i.imgur.com/xw67b7X.jpg')">
         <div style="height: 20rem"></div>
     </div>
-    <!-- Content section-->
-    <section class="py-5">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2>How to Use the Hub</h2>
-                    <p class="lead">Start exploring by selecting a sacred text or selected passage from the menu.</p>
-                    <p class="mb-0">Each text is presented with context, interpretations, and additional resources to enhance your understanding.</p>
-                </div>
-            </div>
-        </div>
-    </section>
     
     <!-- Footer-->
     <footer class="py-5 bg-dark">

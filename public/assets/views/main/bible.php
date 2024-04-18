@@ -42,7 +42,7 @@
                             <li><a class="dropdown-item" href="sufism-poetry">Sufism Poetry</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about">Sources</a></li>
                 </ul>
             </div>
         </div>

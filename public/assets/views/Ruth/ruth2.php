@@ -42,7 +42,7 @@
                             <li><a class="dropdown-item" href="sufism-poetry">Sufism Poetry</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about">Sources</a></li>
                 </ul>
             </div>
         </div>
@@ -123,7 +123,65 @@
 
     <div class="container text-center">
         <br>
-        <p><a href="ruth3" class="btn btn-primary">Ruth 3</a></p>
+        <p>
+            <a href="ruth" class="btn btn-primary">Ruth 1</a>
+            <a href="ruth3" class="btn btn-primary">Ruth 3</a>
+        </p>
+    </div>
+
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="comments-section rounded p-4">
+                <h2 class="section-title">Comments & Interpretations</h2>
+                <div class="comment-form">
+                    <h4 class="form-title">Add a Comment or Your Interpretation!</h4>
+                    <form method="post" action="submit_comments.php">
+                        <div class="mb-3">
+                            <input type="hidden" name="section" value="ruth2">
+                            <label for="title" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <?php
+
+                use app\core\Database;
+                class RuthComments 
+                {
+                    use Database;
+                    public function fetchComments()
+                    {
+                        $sql = "SELECT * FROM ruth2_comments";
+                        return $this->fetchAll($sql);
+                    }
+                }
+
+                $ruthComments = new RuthComments();
+                $comments = $ruthComments->fetchComments();
+                if ($comments) {
+                    foreach ($comments as $index => $comment) {
+                        echo '<div class="comment">';
+                        echo '<h5 class="comment-title">' . $comment["title"] . '</h5>';                                
+                        echo '<p class="comment-description">' . $comment["description"] . '</p>';
+                        echo '<button onclick="incrementCounter(' . $index . ', true)">Helpful</button>
+                            <p id="helpful-counter-' . $index . '">0</p>
+                            <button onclick="incrementCounter(' . $index . ', false)">Not Helpful</button>
+                            <p id="not-helpful-counter-' . $index . '">0</p>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p class="no-comments">No comments yet.</p>';
+                }
+            ?>
+        </div>
+    </div>
     </div>
 
     <!-- Footer-->
@@ -147,6 +205,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="../../assets-bootstrap/js-bootstrap/scripts.js"></script>
+    <script src="../../assets/js/helpful.js"></script>
 
 </body>
 </html>

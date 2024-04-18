@@ -42,13 +42,13 @@
                             <li><a class="dropdown-item" href="sufism-poetry">Sufism Poetry</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about">Sources</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Header - set the background image for the header in the line below-->
+    <!-- Header -->
     <header class="py-5 bg-image-full" style="background-image: url('https://i.imgur.com/zkRaENS.jpg')">
         <div class="text-center my-5">
             <img class="img-fluid rounded-circle mb-4" src="https://i.imgur.com/5oCTmMX.jpg" alt="Abrahamic religion icons" />
@@ -61,16 +61,16 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <h2>About the Hub</h2>
+                    <h2>About Transcendental Teachings</h2>
                     <p class="lead">The Sacred Texts Hub is a platform dedicated to providing access to sacred texts from around the world.</p>
                     <p class="mb-0">Explore texts from different religions and spiritual traditions, delve into their teachings, and gain insights into the diverse ways people understand and practice spirituality.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Image element - set the background image for the header in the line below-->
+
     <div class="py-5 bg-image-full" style="background-image: url('https://i.imgur.com/z8AOg1U.jpeg')">
-        <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+       
         <div style="height: 20rem"></div>
     </div>
     <!-- Content section-->
@@ -78,9 +78,8 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <h2>How to Use the Hub</h2>
+                    <h2>How to Use the Platform</h2>
                     <p class="lead">Start exploring by selecting a sacred text or selected passage from the menu.</p>
-                    <p class="mb-0">Each text is presented with context, interpretations, and additional resources to enhance your understanding.</p>
                 </div>
             </div>
         </div>

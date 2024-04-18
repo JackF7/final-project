@@ -12,51 +12,51 @@ class Comment
 {
     use Database;
 
-    public function getAllComments()
+    public function getAllComments($tableName)
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("SELECT * FROM ruth1_comments");
+        $statement = $connection->prepare("SELECT * FROM $tableName");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function saveAComment($title, $description)
+    public function saveAComment($tableName, $title, $description)
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("INSERT INTO ruth1_comments (title, description) VALUES (:title, :description)");
+        $statement = $connection->prepare("INSERT INTO $tableName (title, description) VALUES (:title, :description)");
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
         return $statement->execute();
     }
 
-    public function updateAComment($id, $title, $description)
+    public function updateAComment($tableName, $id, $title, $description)
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("UPDATE ruth1_comments SET title = :title, description = :description WHERE id = :id");
+        $statement = $connection->prepare("UPDATE $tableName SET title = :title, description = :description WHERE id = :id");
         $statement->bindParam(':id', $id);
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
         return $statement->execute();
     }
 
-    public function getCommentById($id)
+    public function getCommentById($tableName, $id)
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("SELECT * FROM ruth1_comments WHERE id = :id");
+        $statement = $connection->prepare("SELECT * FROM $tableName WHERE id = :id");
         $statement->bindParam(':id', $id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function deleteAComment($id)
+    public function deleteAComment($tableName, $id)
     {
         $connection = $this->connect();
 
-        $statement = $connection->prepare("DELETE FROM ruth1_comments WHERE id = :id");
+        $statement = $connection->prepare("DELETE FROM $tableName WHERE id = :id");
         $statement->bindParam(':id', $id);
         return $statement->execute();
     }

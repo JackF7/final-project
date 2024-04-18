@@ -27,7 +27,8 @@ CREATE TABLE `ruth4_comments` (
 );
 
 INSERT INTO ruth1_comments (title, description) VALUES ('Loyalty', 'This is a story of friendship, love, and loyalty');
-
+INSERT INTO ruth2_comments (title, description) VALUES ('Test Comment', 'Test Description');
+INSERT INTO ruth2_comments (title, description) VALUES ('Test Comment 2', 'Test Description 2');
 
 
 

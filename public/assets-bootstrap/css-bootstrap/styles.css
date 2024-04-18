@@ -127,6 +127,19 @@ body {
   margin-bottom: 20px;
 }
 
+.poem-container {
+  background-color: rgb(198, 143, 230);
+  border: 4px solid black;
+  border-radius: 8px;
+  width: 325px;
+  margin-bottom: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.poem-container p {
+  color: white;
+}
+
 .embedded-bible {
   display: flex;
   justify-content: center;
@@ -387,18 +400,43 @@ textarea {
   line-height: inherit;
 }
 
-#comment-section {
+.btn-primary:hover {
+  background-color: purple;
+  border-color: purple;
+}
+
+.helpful-buttons {
+  margin-right: 20px;
   margin-top: 20px;
 }
 
-#comment {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 10px;
+.comments-section {
+  margin-top: 20px;
+  border: 4px solid black; 
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px; 
 }
 
-#comments-container {
-  margin-bottom: 10px;
+.button-margin {
+  margin-right: 10px;
+}
+
+.comment {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.comment-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-description {
+  font-size: 1rem;
 }
 
 a {
@@ -2873,7 +2911,6 @@ textarea.form-control-lg {
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
 .btn-check:focus-visible + .btn {
-  border-color: var(--bs-btn-hover-border-color);
   outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
@@ -2897,9 +2934,6 @@ textarea.form-control-lg {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
   --bs-btn-border-color: #0d6efd;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0b5ed7;
-  --bs-btn-hover-border-color: #0a58ca;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #0a58ca;
@@ -2914,9 +2948,6 @@ textarea.form-control-lg {
   --bs-btn-color: #fff;
   --bs-btn-bg: #6c757d;
   --bs-btn-border-color: #6c757d;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #5c636a;
-  --bs-btn-hover-border-color: #565e64;
   --bs-btn-focus-shadow-rgb: 130, 138, 145;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #565e64;
@@ -2931,9 +2962,6 @@ textarea.form-control-lg {
   --bs-btn-color: #fff;
   --bs-btn-bg: #198754;
   --bs-btn-border-color: #198754;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #157347;
-  --bs-btn-hover-border-color: #146c43;
   --bs-btn-focus-shadow-rgb: 60, 153, 110;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #146c43;
