@@ -62,7 +62,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <h2>About Transcendental Teachings</h2>
-                    <p class="lead">The Sacred Texts Hub is a platform dedicated to providing access to sacred texts from around the world.</p>
+                    <p class="lead">Transcendental Teachings is a platform dedicated to providing access to sacred texts from around the world.</p>
                     <p class="mb-0">Explore texts from different religions and spiritual traditions, delve into their teachings, and gain insights into the diverse ways people understand and practice spirituality.</p>
                 </div>
             </div>
