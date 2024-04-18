@@ -53,6 +53,7 @@
         <div class="text-center my-5">
             <h1 class="text-gray fs-3 fw-bolder">The Hebrew Bible (The Tanakh)</h1>
             <p class="text-gray-50 mb-0">The Primary Sacred Text of Judaism</p>
+            <p class="text-gray-50 mb-0">Genesis - 4 Maccabees</p>
         </div>
 
         <!-- Embedded Bible. https://biblia.com/plugins/embeddedbible -->
