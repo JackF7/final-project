@@ -174,6 +174,14 @@
                             <p id="helpful-counter-' . $index . '">0</p>
                             <button onclick="incrementCounter(' . $index . ', false)">Not Helpful</button>
                             <p id="not-helpful-counter-' . $index . '">0</p>';
+                        echo '<!-- Update button -->';
+                        echo '<div class="mb-3"><a href="update-comment?id=' . $comment['id'] . '&section=ruth2" class="btn btn-primary">Update</a></div>';
+                        echo '<!-- Delete button -->
+                            <form action="delete_comment.php" method="GET">
+                                <input type="hidden" name="id" value="' . htmlspecialchars($comment["id"]) . '">
+                                <input type="hidden" name="section" value="ruth2">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            <form>';
                         echo '</div>';
                     }
                 } else {

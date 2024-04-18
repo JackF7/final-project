@@ -59,6 +59,11 @@ $routes = [
         'GET' => 'ruth4', 
     ],
 
+    'update_comment_form.php' => [
+        'controller' => MainController::class,
+        'GET' => 'update', 
+    ],
+
     'about.php' => [
         'controller' => MainController::class,
         'GET' => 'about', 

@@ -68,6 +68,11 @@ class MainController extends Controller
         include '../public/assets/views/main/about.php';
     }
 
+    public function update()
+    {
+        include '../public/assets/views/main/update_comment_form.php';
+    }
+
     public function notFound()
     {
         include '../public/assets/views/main/notFound.php';

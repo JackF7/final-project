@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Save the comment using the appropriate table name
         $saveResult = $commentModel->saveAComment($tableName, $title, $description);
-
+ 
         if ($saveResult) {
             // Redirect back to the appropriate page
             header("Location: $section");
@@ -50,5 +50,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request method";
 }
-?>
-

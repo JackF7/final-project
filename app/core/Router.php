@@ -66,6 +66,10 @@ class Router
                 $mainController->ruth4();
                 break;
 
+            case "/update-comment":
+                $mainController->update();
+                break;
+
             case "/about":
                 $mainController->about();
                 break;
