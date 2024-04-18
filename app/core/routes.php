@@ -64,6 +64,11 @@ $routes = [
         'GET' => 'update', 
     ],
 
+    'delete_comment_confirmation.php' => [
+        'controller' => MainController::class,
+        'GET' => 'delete', 
+    ],
+
     'about.php' => [
         'controller' => MainController::class,
         'GET' => 'about', 

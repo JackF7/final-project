@@ -72,6 +72,10 @@ class MainController extends Controller
     {
         include '../public/assets/views/main/update_comment_form.php';
     }
+    public function delete()
+    {
+        include '../public/assets/views/main/delete_comment_confirmation.php';
+    }
 
     public function notFound()
     {

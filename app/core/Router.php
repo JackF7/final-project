@@ -69,7 +69,11 @@ class Router
             case "/update-comment":
                 $mainController->update();
                 break;
-
+                
+            case "/delete-comment":
+                $mainController->delete();
+                break;
+    
             case "/about":
                 $mainController->about();
                 break;
