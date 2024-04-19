@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\controllers\MainController;
+use app\controllers\CommentsController;
 
 class Router
 {
@@ -72,6 +73,16 @@ class Router
                 
             case "/delete-comment":
                 $mainController->delete();
+                break;
+
+            case "/save-comment":
+                $commentController = new CommentsController();
+                $commentController->saveComment();
+                break;
+
+            case "/get-comments":
+                $commentController = new CommentsController();
+                $commentController->getComments();
                 break;
     
             case "/about":

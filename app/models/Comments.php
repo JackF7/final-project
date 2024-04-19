@@ -2,62 +2,49 @@
 
 namespace app\models;
 
-require_once "../app/core/Database.php";
+require_once '../app/core/config.php';
 
-use app\core\Database;
 use PDO;
 use PDOException;
 
 class Comment
 {
-    use Database;
+    private $db;
 
-    public function getAllComments($tableName)
+    public function __construct()
     {
-        $connection = $this->connect();
+        // Attempt to establish the database connection
+        try {
+            $host = DBHOST;
+            $username = DBUSER;
+            $password = DBPASS;
+            $database = DBNAME;
+            
+            $this->db = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            // Return error response if connection fails
+            echo json_encode(["success" => false, "message" => "Failed to connect to the database: " . $e->getMessage()]);
+            exit(); // Terminate the script
+        }
+    }
 
-        $statement = $connection->prepare("SELECT * FROM $tableName");
+    public function getAllComments()
+    {
+        $query = "SELECT * FROM comments";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function saveAComment($tableName, $title, $description)
+    public function saveComment($title, $description)
     {
-        $connection = $this->connect();
-
-        $statement = $connection->prepare("INSERT INTO $tableName (title, description) VALUES (:title, :description)");
+        $query = "INSERT INTO comments (title, description) VALUES (:title, :description)";
+        $statement = $this->db->prepare($query);
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
         return $statement->execute();
     }
 
-    public function updateAComment($tableName, $id, $title, $description)
-    {
-        $connection = $this->connect();
-
-        $statement = $connection->prepare("UPDATE $tableName SET title = :title, description = :description WHERE id = :id");
-        $statement->bindParam(':id', $id);
-        $statement->bindParam(':title', $title);
-        $statement->bindParam(':description', $description);
-        return $statement->execute();
-    }
-
-    public function getCommentById($tableName, $id)
-    {
-        $connection = $this->connect();
-
-        $statement = $connection->prepare("SELECT * FROM $tableName WHERE id = :id");
-        $statement->bindParam(':id', $id);
-        $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function deleteAComment($tableName, $id)
-    {
-        $connection = $this->connect();
-
-        $statement = $connection->prepare("DELETE FROM $tableName WHERE id = :id");
-        $statement->bindParam(':id', $id);
-        return $statement->execute();
-    }
+    // Other methods for updating and deleting comments if needed
 }

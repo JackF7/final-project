@@ -2,6 +2,7 @@
 
 use app\controllers\UserController;
 use app\controllers\MainController;
+use app\controllers\CommentsController;
 
 $routes = [
     'users' => [
@@ -67,6 +68,15 @@ $routes = [
     'delete_comment_confirmation.php' => [
         'controller' => MainController::class,
         'GET' => 'delete', 
+    ],
+
+    'save-comment' => [
+        'controller' => CommentsController::class,
+        'POST' => 'saveComment',
+    ],
+    'get-comments' => [
+        'controller' => CommentsController::class,
+        'GET' => 'getComments',
     ],
 
     'about.php' => [
