@@ -48,7 +48,6 @@
         </div>
     </nav>
 
-    <!-- Header -->
     <header>
     <div class="text-center my-5">
         <h1 class="text-gray fw-bolder">The Book of Ruth—Ruth 1</h1>
@@ -124,58 +123,24 @@
             <div class="comments-section rounded p-4">
                 <h2 class="section-title">Comments & Interpretations</h2>
                 <div class="comment-form">
-                    <h4 class="form-title">Add a Comment or Your Interpretation!</h4>
-                    <form method="post" action="submit_comments.php">
-                        <div class="mb-3">
-                            <input type="hidden" name="section" value="ruth1">
-                            <label for="title" class="form-label">Title:</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description:</label>
-                            <textarea class="form-control" id="description" name="description" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-            <?php
-
-                use app\core\Database;
-                class RuthComments 
-                {
-                    use Database;
-                    public function fetchComments()
-                    {
-                        $sql = "SELECT * FROM ruth1_comments";
-                        return $this->fetchAll($sql);
-                    }
-                }
-
-                $ruthComments = new RuthComments();
-                $comments = $ruthComments->fetchComments();
-                if ($comments) {
-                    foreach ($comments as $index => $comment) {
-                        echo '<div class="comment">';
-                        echo '<h5 class="comment-title">' . $comment["title"] . '</h5>';                                
-                        echo '<p class="comment-description">' . $comment["description"] . '</p>';
-                        echo '<button onclick="incrementCounter(' . $index . ', true)">Helpful</button>
-                            <p id="helpful-counter-' . $index . '">0</p>
-                            <button onclick="incrementCounter(' . $index . ', false)">Not Helpful</button>
-                            <p id="not-helpful-counter-' . $index . '">0</p>';
-                        echo '<!-- Update button -->';
-                        echo '<div class="mb-3"><a href="update-comment?id=' . $comment['id'] . '&section=ruth1" class="btn btn-primary">Update</a></div>';
-                        echo '<!-- Delete button -->';
-                        echo '<a href="delete-comment?id=' . $comment['id'] . '&section=ruth1" class="btn btn-danger">Delete</a>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo '<p class="no-comments">No comments yet.</p>';
-                }
-            ?>
-        </div>
+<h4 class="form-title">Add a Comment or Your Interpretation!</h4>
+<form onsubmit="event.preventDefault(); submitComment()">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" required>
     </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" required></textarea>
     </div>
+    <button type="submit" class="mb-3 btn btn-primary">Submit</button>
+</form>
+</div>
+<div id="comments-section"></div>
+</div>
+</div>
+</div>
+</div>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -198,8 +163,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="../../assets-bootstrap/js-bootstrap/scripts.js"></script>
-    <!--Helpful Button Counter -->
     <script src="../../assets/js/helpful.js"></script>
+    <script src="../../assets/js/comments.js"></script>
+     <!-- Include jQuery library -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+    // Call getComments() function when the page loads
+    $(document).ready(function() {
+        getComments();
+    });
+</script>
 
 </body>
 </html>
