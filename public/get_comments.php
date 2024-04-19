@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 }
 
 // Hardcoded table name
-$table = "ruth1_comments";
+$table = $_GET['$section'];
 
 // Prepare SQL statement to select comments from the ruth1_comments table
 $sql = "SELECT * FROM $table";

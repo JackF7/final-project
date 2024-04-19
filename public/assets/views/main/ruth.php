@@ -51,7 +51,7 @@
     <header>
     <div class="text-center my-5">
         <h1 class="text-gray fw-bolder">The Book of Ruth—Ruth 1</h1>
-        <h5 class="text-gray fw-bolder">The Ketvium (Writings)</h5>
+        <h5 class="text-gray fw-bolder">The Ketuvim (Writings)</h5>
     </div>
 
     <div class="container">
@@ -123,24 +123,24 @@
             <div class="comments-section rounded p-4">
                 <h2 class="section-title">Comments & Interpretations</h2>
                 <div class="comment-form">
-<h4 class="form-title">Add a Comment or Your Interpretation!</h4>
-<form onsubmit="event.preventDefault(); submitComment()">
-    <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" id="title" required>
+                    <h4 class="form-title">Add a Comment or Your Interpretation!</h4>
+                    <form onsubmit="event.preventDefault(); submitComment()">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description:</label>
+                            <textarea class="form-control" id="description" required></textarea>
+                        </div>
+                        <button type="submit" class="mb-3 btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            <div id="comments-section"></div>
+        </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="description" class="form-label">Description:</label>
-        <textarea class="form-control" id="description" required></textarea>
     </div>
-    <button type="submit" class="mb-3 btn btn-primary">Submit</button>
-</form>
-</div>
-<div id="comments-section"></div>
-</div>
-</div>
-</div>
-</div>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">

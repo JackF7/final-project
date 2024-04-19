@@ -79,6 +79,16 @@ $routes = [
         'GET' => 'getComments',
     ],
 
+    'delete-comment-js' => [
+        'controller' => CommentsController::class,
+        'POST' => 'deleteComment',
+    ],
+
+    'update-comment-js' => [
+        'controller' => CommentsController::class,
+        'POST' => 'saveComment',
+    ],
+
     'about.php' => [
         'controller' => MainController::class,
         'GET' => 'about', 

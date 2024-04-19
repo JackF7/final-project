@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\controllers\MainController;
+use app\controllers\JSCommentsController;
 use app\controllers\CommentsController;
 
 class Router
@@ -76,45 +77,24 @@ class Router
                 break;
 
             case "/save-comment":
-                $commentController = new CommentsController();
+                $commentController = new JSCommentsController();
                 $commentController->saveComment();
                 break;
 
             case "/get-comments":
-                $commentController = new CommentsController();
+                $commentController = new JSCommentsController();
                 $commentController->getComments();
                 break;
     
             case "/about":
                 $mainController->about();
                 break;
+
+        
     
             default:
                 $mainController->notFound();
                 break;
         }
     }
-
-    /* Original function
-
-    public function serveRoute() {
-        $uriParse = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        $method =  $_SERVER['REQUEST_METHOD'];
-
-        if ($uriParse[0]) {
-            $route = $this->routeList[$uriParse[0]];
-            if ($route) {
-                $controller = $route['controller'];
-                $action = $route[$method];
-                $controller = new $controller();
-                $controller->$action();
-            } else {
-                $homepageController = new MainController();
-                $homepageController->notFound();
-            }
-        } else {
-            $homepageController = new MainController();
-            $homepageController->homepage();
-        }
-    } */
 }

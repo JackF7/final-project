@@ -7,7 +7,7 @@ require_once '../app/core/config.php';
 use PDO;
 use PDOException;
 
-class Comment
+class JSComment
 {
     private $db;
 

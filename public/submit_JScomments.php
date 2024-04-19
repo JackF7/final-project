@@ -1,47 +1,49 @@
 <?php
-require_once '../app/core/config.php'; 
+require_once '../app/core/config.php';
 
-// Check if form data is received
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required fields are filled
-    if (!empty($_POST['title']) && !empty($_POST['description'])) {
-        try {
-            // Establish a database connection
-            $conn = new PDO("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSER, DBPASS);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            // Prepare and bind parameters
-            $stmt = $conn->prepare("INSERT INTO ruth1_comments (title, description) VALUES (?, ?)");
-            $stmt->bindParam(1, $title);
-            $stmt->bindParam(2, $description);
+// Database connection parameters
+$host = DBHOST;
+$username = DBUSER;
+$password = DBPASS;
+$database = DBNAME;
 
-            // Set parameters and execute
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            
-            // Attempt to execute the statement
-            if ($stmt->execute()) {
-                // Close statement
-                $stmt->closeCursor();
+// Attempt to establish the database connection
+$conn = new mysqli($host, $username, $password, $database);
 
-                // Close database connection
-                $conn = null;
-
-                // Return success response
-                echo json_encode(["success" => true]);
-            } else {
-                // Return error response if execution fails
-                echo json_encode(["success" => false, "message" => "Failed to insert comment"]);
-            }
-        } catch (PDOException $e) {
-            // Return error response if a PDOException occurs
-            echo json_encode(["success" => false, "message" => $e->getMessage()]);
-        }
-    } else {
-        // Return error response if required fields are missing
-        echo json_encode(["success" => false, "message" => "All fields are required"]);
-    }
-} else {
-    // Return error response if request method is not POST
-    echo json_encode(["success" => false, "message" => "Invalid request method"]);
+// Check if the connection is successful
+if ($conn->connect_error) {
+    // Return error response if connection fails
+    echo json_encode(["success" => false, "message" => "Failed to connect to the database"]);
+    exit(); // Terminate the script
 }
+
+// Hardcoded table name
+$table = "ruth1_comments";
+
+// Prepare SQL statement to select comments from the ruth1_comments table
+$sql = "SELECT * FROM $table";
+
+// Execute SQL query
+$result = $conn->query($sql);
+
+if ($result) {
+    // Fetch comments as an associative array
+    $comments = [];
+    while ($row = $result->fetch_assoc()) {
+        $comments[] = $row;
+    }
+
+    // Close result set
+    $result->close();
+
+    // Close connection
+    $conn->close();
+
+    // Return comments as JSON response
+    echo json_encode($comments);
+} else {
+    // Return error response if query fails
+    echo json_encode(["success" => false, "message" => "Failed to fetch comments"]);
+}
+
+?>

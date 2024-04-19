@@ -39,3 +39,28 @@ function getComments() {
         }
     });
 }
+
+$(document).on("click", ".delete-comment", function() {
+    var commentId = $(this).data("id");
+    $.ajax({
+        type: "POST",
+        url: "/delete-comment",
+        data: { id: commentId },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                getComments();
+            } else {
+                alert("Error: " + response.message);
+            }
+        }
+    });
+});
+
+// Event listener for updating a comment
+$(document).on("click", ".update-comment", function() {
+    var commentId = $(this).data("id");
+    var title = $(this).data("title");
+    var description = $(this).data("description");
+    // Implement your logic for updating the comment here
+});
