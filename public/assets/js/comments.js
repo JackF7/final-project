@@ -4,7 +4,7 @@ function submitComment() {
 
     $.ajax({
         type: "POST",
-        url: "index.php?controller=Comments&action=save-comment",
+        url: "/save-comment",
         data: {
             title: title,
             description: description
@@ -25,7 +25,7 @@ function submitComment() {
 function getComments() {
     $.ajax({
         type: "GET",
-        url: "index.php?controller=Comments&action=get-comments",
+        url: "/get-comments",
         dataType: "json",
         success: function(comments) {
             var commentsHTML = "";

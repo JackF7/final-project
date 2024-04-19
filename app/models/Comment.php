@@ -31,7 +31,7 @@ class Comment
 
     public function getAllComments()
     {
-        $query = "SELECT * FROM comments";
+        $query = "SELECT * FROM ruth1_comments";
         $statement = $this->db->prepare($query);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@ class Comment
 
     public function saveComment($title, $description)
     {
-        $query = "INSERT INTO comments (title, description) VALUES (:title, :description)";
+        $query = "INSERT INTO ruth1_comments (title, description) VALUES (:title, :description)";
         $statement = $this->db->prepare($query);
         $statement->bindParam(':title', $title);
         $statement->bindParam(':description', $description);
