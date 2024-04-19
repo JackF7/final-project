@@ -46,5 +46,4 @@ class CommentsController
         exit();
     }
 
-    // Other methods for updating and deleting comments if needed
 }

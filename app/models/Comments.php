@@ -25,7 +25,7 @@ class Comment
         } catch (PDOException $e) {
             // Return error response if connection fails
             echo json_encode(["success" => false, "message" => "Failed to connect to the database: " . $e->getMessage()]);
-            exit(); // Terminate the script
+            exit(); 
         }
     }
 
@@ -46,5 +46,4 @@ class Comment
         return $statement->execute();
     }
 
-    // Other methods for updating and deleting comments if needed
 }
